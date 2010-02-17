@@ -1,0 +1,9 @@
+name = Addemar Plugin
+description = E-mail Marketing Framework plugin for Addemar integration.
+core = 6.x
+package = E-mail Marketing Framework
+dependencies[] = emf
+
+core = "6.x"
+project = "emf"
+

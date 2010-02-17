@@ -1,0 +1,34 @@
+<?php
+/**
+ * @file
+ * Drupal hooks
+ *
+ */
+
+/**
+ * Implementation of hook_menu().
+ */
+function emf_addemar_menu() {
+
+  // settings
+  $items['admin/settings/addemar'] = array(
+    'title' => 'Addemar',
+    'description' => 'Configure addemar settings.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('emf_addemar_settings'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'emf_addemar.settings.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implementation of hook_emf_info().
+ */
+function emf_addemar_emf_info() {
+  return array(
+    'name' => 'Addemar',
+    'file' => 'emf_addemar.api.inc',
+  );
+}

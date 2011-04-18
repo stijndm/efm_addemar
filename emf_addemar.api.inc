@@ -130,7 +130,7 @@ function emf_addemar_api_get_lists() {
   $mgids = _emf_addemar_api_call('getMailgroupId', array());
 
   $lists = array();
-  if (is_array($mgids) {
+  if (is_array($mgids)) {
     foreach ($mgids as $mgid) {
       $list = _emf_addemar_api_call('getMailgroupData', array($mgid));
 

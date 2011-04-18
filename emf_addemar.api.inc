@@ -183,7 +183,8 @@ function _emf_addemar_api_call($method, $params = array()) {
 
   // fetching api key
   $token = variable_get('emf_addemar_token', '');
-
+  $server = variable_get('emf_addemar_server', 'ws.email.addemar.com');
+ 
   // if no api key is specified, return false
   if (empty($token)) return FALSE;
 
@@ -191,7 +192,7 @@ function _emf_addemar_api_call($method, $params = array()) {
   //if no connection open a new connection
   if (!$addemar) {
     //build url
-    $url = 'http://ws.email.addemar.com/soap/wsdl/?token='.$token.'&version=1.1&t='.rand();
+    $url = 'http://' . $server . '/soap/wsdl/?' . http_build_query(array('token' => $token, 'version' => '1.1', 't' => rand()));
 
     // do api call
     $addemar = new SoapClient($url, array('exceptions' => 0));
